@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Contensio Default theme preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f9fafb"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fef3c7"/>
+      <stop offset="1" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dcfce7"/>
+      <stop offset="1" stop-color="#bbf7d0"/>
+    </linearGradient>
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <!-- Header bar -->
+  <rect x="0" y="0" width="1280" height="72" fill="#ffffff"/>
+  <line x1="0" y1="72" x2="1280" y2="72" stroke="#f3f4f6" stroke-width="1"/>
+
+  <!-- Logo -->
+  <text x="72" y="46" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#111827">Contensio</text>
+
+  <!-- Nav links -->
+  <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#6b7280">
+    <text x="1024" y="46">Home</text>
+    <text x="1088" y="46">Blog</text>
+    <text x="1148" y="46" fill="#2563eb" font-weight="600">About</text>
+  </g>
+
+  <!-- Hero -->
+  <text x="640" y="208" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="56" font-weight="800" fill="#111827" letter-spacing="-1.5">
+    The open content platform
+  </text>
+  <text x="640" y="254" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#6b7280" letter-spacing="0">
+    Build blogs, shops, communities — on one flexible core.
+  </text>
+
+  <!-- CTA button -->
+  <g transform="translate(536, 296)">
+    <rect width="208" height="46" rx="8" fill="#2563eb"/>
+    <text x="104" y="29" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Explore the docs</text>
+  </g>
+
+  <!-- Section label -->
+  <g transform="translate(120, 420)">
+    <text font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="#9ca3af" letter-spacing="2">LATEST POSTS</text>
+  </g>
+
+  <!-- Post cards -->
+  <g filter="url(#softShadow)">
+    <!-- Card 1 -->
+    <g transform="translate(120, 452)">
+      <rect width="328" height="220" rx="12" fill="#ffffff"/>
+      <rect x="0" y="0" width="328" height="130" rx="12" fill="url(#card)"/>
+      <rect x="0" y="118" width="328" height="12" fill="url(#card)"/>
+      <text x="20" y="168" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#9ca3af" letter-spacing="1">APR 14, 2026</text>
+      <text x="20" y="192" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#111827">Ship a new Contensio site in</text>
+      <text x="20" y="212" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#111827">under five minutes</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(476, 452)">
+      <rect width="328" height="220" rx="12" fill="#ffffff"/>
+      <rect x="0" y="0" width="328" height="130" rx="12" fill="url(#card2)"/>
+      <rect x="0" y="118" width="328" height="12" fill="url(#card2)"/>
+      <text x="20" y="168" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#9ca3af" letter-spacing="1">APR 12, 2026</text>
+      <text x="20" y="192" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#111827">Themes, plugins, menus —</text>
+      <text x="20" y="212" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#111827">all from the admin panel</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(832, 452)">
+      <rect width="328" height="220" rx="12" fill="#ffffff"/>
+      <rect x="0" y="0" width="328" height="130" rx="12" fill="url(#card3)"/>
+      <rect x="0" y="118" width="328" height="12" fill="url(#card3)"/>
+      <text x="20" y="168" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#9ca3af" letter-spacing="1">APR 10, 2026</text>
+      <text x="20" y="192" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#111827">Multi-language from day</text>
+      <text x="20" y="212" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#111827">one, every field</text>
+    </g>
+  </g>
+</svg>
