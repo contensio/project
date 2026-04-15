@@ -40,11 +40,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @php
+        // SEO helpers — expose site-wide defaults + per-content overrides.
+        // Views opt-in via @section('meta_robots', 'noindex') or @section('og_image', '...')
+        $siteNoindex  = (bool) \Contensio\Cms\Models\Setting::where('module', 'core')->where('setting_key', 'seo_noindex')->value('value');
+        $siteOgImage  = \Contensio\Cms\Models\Setting::where('module', 'core')->where('setting_key', 'default_og_image')->value('value');
+        $verification = \Contensio\Cms\Models\Setting::where('module', 'core')->where('setting_key', 'google_site_verification')->value('value');
+
+        $pageRobots = trim($__env->yieldContent('meta_robots'));
+        $pageOgImg  = trim($__env->yieldContent('og_image'));
+        $ogImage    = $pageOgImg ?: $siteOgImage;
+        $isNoindex  = $siteNoindex || $pageRobots === 'noindex';
+    @endphp
+
     <title>@yield('title', $site['name'])</title>
     <meta name="description" content="@yield('meta_description', $site['tagline'] ?? '')">
-    @hasSection('meta_title')
-    <meta property="og:title" content="@yield('meta_title')">
+
+    {{-- Robots meta: site-wide noindex OR per-page --}}
+    @if($isNoindex)
+    <meta name="robots" content="noindex, nofollow">
+    @else
+    <meta name="robots" content="index, follow">
     @endif
+
+    {{-- Google Search Console verification --}}
+    @if($verification)
+    <meta name="google-site-verification" content="{{ $verification }}">
+    @endif
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:site_name" content="{{ $site['name'] }}">
+    <meta property="og:title" content="@yield('meta_title', $site['name'])">
+    <meta property="og:description" content="@yield('meta_description', $site['tagline'] ?? '')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    @if($ogImage)
+    <meta property="og:image" content="{{ $ogImage }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ $ogImage }}">
+    @else
+    <meta name="twitter:card" content="summary">
+    @endif
+    <meta name="twitter:title" content="@yield('meta_title', $site['name'])">
+    <meta name="twitter:description" content="@yield('meta_description', $site['tagline'] ?? '')">
 
     @if(! empty($googleFonts))
     <link rel="preconnect" href="https://fonts.googleapis.com">

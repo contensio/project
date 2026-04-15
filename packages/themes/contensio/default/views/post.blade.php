@@ -1,9 +1,18 @@
 @extends('theme::layout')
 
 @section('title', ($translation->meta_title ?: $translation->title) . ' — ' . $site['name'])
+@section('meta_title', $translation->meta_title ?: $translation->title)
 
 @if($translation->meta_description)
 @section('meta_description', $translation->meta_description)
+@elseif($translation->excerpt)
+@section('meta_description', $translation->excerpt)
+@endif
+
+@section('og_type', 'article')
+
+@if($content->featuredImage)
+@section('og_image', Storage::disk($content->featuredImage->disk)->url($content->featuredImage->file_path))
 @endif
 
 @section('content')
